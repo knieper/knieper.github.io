@@ -4,4 +4,4 @@
 
 layout: page
 ---
-Email [sharonknieper@gmail.com](mailto:sharonknieper@gmail.com) for more information.
+Email [contact@sharonknieper.com](mailto:contact@sharonknieper.com) for more information.
