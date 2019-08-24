@@ -1,0 +1,43 @@
+//SRK custom stylesheet
+/*
+font-family: 'Julius Sans One', sans-serif;
+*/
+
+h1, h2, h3 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+header{
+  a {
+    color: white;
+    &:hover{
+      border-color: white;
+    }
+  }
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 100%; //overriding theme default
+  }
+}
+
+.texture-SRK{
+  background-color: #581845;
+}
+
+.navbar{
+  ul{
+    li{
+      border: 0px;
+    }
+  }
+}
+
+.portrait{
+  width: 25%;
+  @media screen and  (max-width: $mobileWidth){
+    display: none;
+  }
+}
