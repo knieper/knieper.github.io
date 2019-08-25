@@ -14,10 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Sharon Knieper
-email: sharonknieper@gmail.com
+email: contact@sharonknieper.com
 description:  Brooklyn based UX and Drupal expertise for hire. Argentine Tango and Feldenkrais aficionado.
 #baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://sharonknieper.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://www.sharonknieper.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 texture:
   title: Sharon Knieper
@@ -29,7 +29,7 @@ texture:
     github:  knieper
     linkedIn: in/sharon-knieper-a573734 # format: locale/username
   #analytics_id: '< YOUR ID >'
-  #showNav: true
+  showNav: false
   #show_excerpts: true
   #style: [black]
   style: 'SRK' #my custom style, prints as 'texture-SRK' class

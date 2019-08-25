@@ -8,6 +8,7 @@ h1, h2, h3 {
 }
 
 header{
+  padding: 40px 0;
   a {
     color: white;
     &:hover{
@@ -15,16 +16,24 @@ header{
     }
   }
   .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    //display: flex;
+    //justify-content: space-between;
+  //  align-items: center;
     max-width: 100%; //overriding theme default
+    margin-bottom: 20px;
+    text-align: right;
   }
 }
 
 .texture-SRK{
-  background-color: #581845;
+//  background-color: #581845;
+  background: linear-gradient(
+                     rgba(20,20,20, .4),
+                     rgba(20,20,20, .4)),
+                     url('/assets/SRK-68.jpg');
+//  background-image: url('/assets/SRK-68.jpg');
+  background-size: 100vw;
+  min-height: 60vw;
 }
 
 .navbar{
@@ -35,9 +44,6 @@ header{
   }
 }
 
-.portrait{
-  width: 25%;
-  @media screen and  (max-width: $mobileWidth){
-    display: none;
+.social{
+  display: inline-block;
   }
-}
