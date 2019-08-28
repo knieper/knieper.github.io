@@ -8,17 +8,18 @@ h1, h2, h3 {
 }
 
 header{
-  padding: 40px 0;
+  padding: 10px 0;//overriding theme default
+  @media (min-width: $mobileWidth) {
+    padding: 40px 0;//overriding theme default
+  }
   a {
     color: white;
     &:hover{
       border-color: white;
+      color: $gray;
     }
   }
   .container{
-    //display: flex;
-    //justify-content: space-between;
-  //  align-items: center;
     max-width: 100%; //overriding theme default
     margin-bottom: 20px;
     text-align: right;
@@ -26,14 +27,37 @@ header{
 }
 
 .texture-SRK{
-//  background-color: #581845;
-  background: linear-gradient(
-                     rgba(20,20,20, .4),
-                     rgba(20,20,20, .4)),
-                     url('/assets/SRK-68.jpg');
-//  background-image: url('/assets/SRK-68.jpg');
-  background-size: 100vw;
-  min-height: 60vw;
+  @media (max-width: $mobileWidth){
+    background-color: #B4B4B4;
+    background: linear-gradient(
+                       rgba(20,20,20, .4),
+                       rgba(20,20,20, .4)),
+    url('/assets/SRK-68-sm.jpg');
+    background-repeat: no-repeat;
+    background-size: 120vw;
+    min-height: 65vw;
+    max-height: 80vw;
+  }
+  @media (min-width: $mobileWidth) and (max-width: $bigScreenW) {
+    background: linear-gradient(
+                       rgba(20,20,20, .4),
+                       rgba(20,20,20, .4)),
+    url('/assets/SRK-68-sm.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    min-height: 60vw;
+    max-height: 80vw;
+  }
+  @media (min-width: $bigScreenW){
+    background: linear-gradient(
+                  rgba(20,20,20, .4),
+                  rgba(20,20,20, .4)),
+    url('/assets/SRK-68-lg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    min-height: 40vw;
+    max-height: 60vw;
+  }
 }
 
 .navbar{
