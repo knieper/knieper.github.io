@@ -245,6 +245,9 @@ th {
 img, embed, object, video {
   max-width: 100%; }
 
+main {
+  overflow-x: hidden; }
+
 /* Solarized Light 
 For use with Jekyll and Pygments
 http://ethanschoonover.com/solarized
@@ -537,7 +540,7 @@ green     #859900  operators, other keywords
   color: #2aa198; }
 
 /* Literal.Number.Integer.Long */
-.highlighter-rouge {
+div.highlighter-rouge {
   width: 100vw;
   position: relative;
   right: 150px;
@@ -547,12 +550,13 @@ green     #859900  operators, other keywords
   background-color: #f4f4f4; }
 
 div.highlight {
-  padding: 30px 7.5vw; }
+  padding: 30px 150px; }
 
 pre.highlight, code {
   font-family: 'Consolas', Menlo, monospace;
   line-height: 1.4em;
-  tab-size: 4; }
+  tab-size: 4;
+  background-color: #f4f4f4; }
 
 *, *:before, *:after {
   box-sizing: border-box; }
@@ -600,6 +604,21 @@ h2 {
     h2 {
       font-size: 32px; } }
 
+h4 {
+  font-weight: normal;
+  font-size: 18px; }
+  @media screen and (min-width: 320px) {
+    h4 {
+      font-size: calc(18px + 2 * ((100vw - 320px) / 960)); } }
+  @media screen and (min-width: 1280px) {
+    h4 {
+      font-size: 20px; } }
+
+figcaption {
+  font-size: 10pt;
+  line-height: 1.5em;
+  margin-top: -1em; }
+
 header {
   padding: 120px 0;
   color: #fff;
@@ -631,34 +650,42 @@ header {
         header .social li i:hover {
           color: #999; }
 
+.clearfix {
+  clear: both; }
+
 .container {
   margin: 0 150px;
   max-width: 720px; }
-  .container .highlighter-rouge {
+  .container div.highlighter-rouge {
     right: 150px; }
-  @media screen and (min-width: 1600px) {
-    .container {
-      max-width: 1200px; } }
   @media screen and (max-width: 540px) {
     .container {
       margin: 0 15px; }
-      .container .highlighter-rouge {
-        right: 15px; } }
+      .container div.highlighter-rouge {
+        right: 15px; }
+      .container div.highlight {
+        padding: 30px 15px; } }
   @media screen and (max-width: 768px) and (min-width: 540px) {
     .container {
       margin: 0 40px; }
-      .container .highlighter-rouge {
-        right: 40px; } }
+      .container div.highlighter-rouge {
+        right: 40px; }
+      .container div.highlight {
+        padding: 30px 40px; } }
   @media screen and (max-width: 1024px) and (min-width: 768px) {
     .container {
       margin: 0 80px; }
-      .container .highlighter-rouge {
-        right: 80px; } }
+      .container div.highlighter-rouge {
+        right: 80px; }
+      .container div.highlight {
+        padding: 30px 80px; } }
   @media screen and (min-width: 1024px) and (max-width: 1280px) {
     .container {
       margin: 0 100px; }
-      .container .highlighter-rouge {
-        right: 100px; } }
+      .container div.highlighter-rouge {
+        right: 100px; }
+      .container div.highlight {
+        padding: 30px 100px; } }
 
 .post-title {
   color: #222;
@@ -668,18 +695,44 @@ header {
     color: #999;
     border-bottom: 0; }
 
+.post-description {
+  font-weight: normal;
+  color: #ddd;
+  margin-top: .5em;
+  margin-bottom: 1.3em; }
+
 .post-date {
   color: #999; }
   .post-date .icon-calendar {
     margin-right: 6px; }
 
+.post-tags {
+  list-style-type: none;
+  padding: 0; }
+  .post-tags li {
+    float: left;
+    padding: 10px 20px;
+    background-color: #eee;
+    color: #000;
+    margin: 5px;
+    border-radius: 2px;
+    font-size: 15px; }
+    @media screen and (min-width: 320px) {
+      .post-tags li {
+        font-size: calc(15px + 2 * ((100vw - 320px) / 960)); } }
+    @media screen and (min-width: 1280px) {
+      .post-tags li {
+        font-size: 17px; } }
+    .post-tags li:first-child {
+      margin-left: 0; }
+
 .posts {
   list-style-type: none;
   padding: 0; }
-  .posts li {
+  .posts > li {
     margin-bottom: 30px;
     padding-bottom: 20px; }
-    .posts li:not(:last-child) {
+    .posts > li:not(:last-child) {
       border-bottom: 1px solid #eee; }
 
 .posts, .post-container {
@@ -696,9 +749,12 @@ header {
   margin: 20px 0; }
 
 .navbar {
+  display: flex;
   position: absolute;
   top: 0;
   right: 5vw; }
+  .navbar a {
+    color: inherit; }
   .navbar ul {
     list-style-type: none; }
     .navbar ul li {
@@ -718,6 +774,8 @@ header {
       .navbar ul li:hover {
         background-color: rgba(255, 255, 255, 0.15);
         cursor: pointer; }
+      .navbar ul li.active {
+        background-color: rgba(255, 255, 255, 0.15); }
 
 /*
 font-family: 'Julius Sans One', sans-serif;
@@ -725,27 +783,49 @@ font-family: 'Julius Sans One', sans-serif;
 h1, h2, h3 {
   font-family: 'Julius Sans One', sans-serif; }
 
-header a {
-  color: white; }
-  header a:hover {
-    border-color: white; }
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%; }
+header {
+  padding: 10px 0; }
+  @media (min-width: 540px) {
+    header {
+      padding: 40px 0; } }
+  header a {
+    color: white; }
+    header a:hover {
+      border-color: white;
+      color: #999; }
+  header .container {
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-align: right; }
 
-.texture-SRK {
-  background-color: #581845; }
+@media (max-width: 540px) {
+  .texture-SRK {
+    background-color: #B4B4B4;
+    background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url("/assets/SRK-68-sm.jpg");
+    background-repeat: no-repeat;
+    background-size: 120vw;
+    min-height: 65vw;
+    max-height: 80vw; } }
+@media (min-width: 540px) and (max-width: 1600px) {
+  .texture-SRK {
+    background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url("/assets/SRK-68-sm.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    min-height: 60vw;
+    max-height: 80vw; } }
+@media (min-width: 1600px) {
+  .texture-SRK {
+    background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url("/assets/SRK-68-lg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    min-height: 40vw;
+    max-height: 60vw; } }
 
 .navbar ul li {
   border: 0px; }
 
-.portrait {
-  width: 25%; }
-  @media screen and (max-width: 540px) {
-    .portrait {
-      display: none; } }
+.social {
+  display: inline-block; }
 
 .texture-black {
   background-image: url("/assets/textures/black.jpg"); }
